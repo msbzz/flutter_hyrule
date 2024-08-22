@@ -34,10 +34,15 @@ class Entry {
       name: map['name'] as String,
       image: map['image'] as String,
       description: map['description'] as String,
-      commonLocations: map['commonLocations'] as String,
+      commonLocations: jsonEncode(map['common_locations']??['sem localizacao']),
       category: map['category'] as String,
     );
   }
+
+  List<String> commonLocationConverter(){
+    return (jsonDecode(commonLocations) as List<dynamic>).map((e)=>e as String).toList();
+  }
+
 
   String toJson() => json.encode(toMap());
 
