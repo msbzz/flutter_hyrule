@@ -72,7 +72,7 @@ class _$AppDatabase extends AppDatabase {
     changeListener = listener ?? StreamController<String>.broadcast();
   }
 
-  EntrytDao? _entrytDaoDaoInstance;
+  EntryDao? _entryDaoInstance;
 
   Future<sqflite.Database> open(
     String path,
@@ -105,13 +105,13 @@ class _$AppDatabase extends AppDatabase {
   }
 
   @override
-  EntrytDao get entrytDaoDao {
-    return _entrytDaoDaoInstance ??= _$EntrytDao(database, changeListener);
+  EntryDao get entryDao {
+    return _entryDaoInstance ??= _$EntryDao(database, changeListener);
   }
 }
 
-class _$EntrytDao extends EntrytDao {
-  _$EntrytDao(
+class _$EntryDao extends EntryDao {
+  _$EntryDao(
     this.database,
     this.changeListener,
   )   : _queryAdapter = QueryAdapter(database),
@@ -162,8 +162,8 @@ class _$EntrytDao extends EntrytDao {
   }
 
   @override
-  Future<void> addEntry(Entry Entry) async {
-    await _entryInsertionAdapter.insert(Entry, OnConflictStrategy.replace);
+  Future<void> addEntry(Entry entry) async {
+    await _entryInsertionAdapter.insert(entry, OnConflictStrategy.replace);
   }
 
   @override
