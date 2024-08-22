@@ -1,7 +1,11 @@
 import 'dart:convert';
 
+import 'package:floor/floor.dart';
+
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+@entity
 class Entry {
+    @primaryKey
     int id;
     String name;
     String image;
@@ -16,7 +20,7 @@ class Entry {
     required this.commonLocations,
     required this.category,
   });
-  
+
    //serialização
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
