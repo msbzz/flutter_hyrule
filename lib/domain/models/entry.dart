@@ -16,7 +16,8 @@ class Entry {
     required this.commonLocations,
     required this.category,
   });
-
+  
+   //serialização
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
@@ -28,6 +29,7 @@ class Entry {
     };
   }
 
+  //deserialização
   factory Entry.fromMap(Map<String, dynamic> map) {
     return Entry(
       id: map['id'] as int,
