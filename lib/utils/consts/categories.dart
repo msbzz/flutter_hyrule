@@ -1,8 +1,8 @@
-const String imagePath ="'assets/images/";
+const String imagePath ="assets/images/";
 
 const Map<String,String> categoriesMap ={
   'creatures':'Creatures',
-  'equipament':'Equipament',
+  'equipment':'Equipment',
   'materials':'Materials',
   'monsters':'Monsters',
   'treasure':'Treasure',
