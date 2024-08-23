@@ -4,7 +4,7 @@ import 'package:hyrule/domain/models/business/dao_workflow.dart';
 import 'package:hyrule/data/dao/entry_dao.dart';
 import 'package:hyrule/domain/models/entry.dart';
 
-class DaoContoller implements DaoWorkflow{
+class DaoController implements DaoWorkflow{
   Future<EntryDao> createDatabase()async{
     final database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
     final EntryDao entryDao = database.entryDao;
