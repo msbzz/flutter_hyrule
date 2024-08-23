@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hyrule/screens/results/results.dart';
 import 'package:hyrule/utils/consts/categories.dart';
  
 class Category extends StatelessWidget {
@@ -9,7 +10,9 @@ class Category extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder:(context)=> Results(category:category)));
+          },
           child: Ink(
             child: Center(child: Image.asset('$imagePath$category.png')),
           ),
