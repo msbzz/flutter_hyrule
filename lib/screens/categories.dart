@@ -10,7 +10,10 @@ class Categories extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: const Text('Escolha uma categoria'),
+        title:const Padding(
+          padding:  EdgeInsets.only(top:34.0,bottom: 20),
+          child:  Text('Escolha uma categoria'),
+        ),
         centerTitle: true,
         actions: [
           IconButton(onPressed: (){
@@ -18,11 +21,18 @@ class Categories extends StatelessWidget {
           }, icon: const Icon(Icons.bookmark))
         ],
       ),
-      body:GridView(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,crossAxisSpacing: 16,mainAxisSpacing: 16), 
-        children: categoriesMap.keys.map((e)=> Category(category:e)).toList()   
-        ),
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: GridView(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16, 
+              mainAxisExtent: 193), 
+            children: categoriesMap.keys.map((e)=> Category(category:e)).toList()   
+            ),
+      ),
+       
     ));
   }
 }
