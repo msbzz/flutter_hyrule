@@ -32,7 +32,7 @@ class EntryCard extends StatelessWidget {
         ),
         onDismissed: (direction) {
           daoController.deleteEntry(entry: entry);
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Deletado")));
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Deletado"),duration: Duration(seconds: 3)));
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

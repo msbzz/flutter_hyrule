@@ -10,13 +10,26 @@ class Details extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(title: const Text('Detalhes'),),
-      floatingActionButton: FloatingActionButton(onPressed: ()=>{
-        daoConroller.saveEntry(entry: entry)
-      }),
-      body: Column(children:<Widget>[
+      appBar: AppBar(
+        title: const Text('Detalhes'),
+      ),
+      floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.bookmark),
+          onPressed: () => {
+                daoConroller.saveEntry(entry: entry),
+                ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("item adicionado"),duration: Duration(seconds: 1))),
+                Future.delayed(Duration(seconds: 2), () {
+                  Navigator.pop(context);
+                })
+              }),
+      body: Column(children: <Widget>[
         Text(entry.name),
-        Wrap(children: entry.commonLocationConverter().map((e)=>Chip(label:Text(e))).toList()), 
+        Wrap(
+            children: entry
+                .commonLocationConverter()
+                .map((e) => Chip(label: Text(e)))
+                .toList()),
         Image.network(entry.image),
         Text(entry.description),
       ]),
